@@ -16,7 +16,7 @@ CONFIG_LINES=(
 	"enable_dpi_lcd=1"
 	"dpi_group=2"
 	"dpi_mode=87"
-	"dpi_output_format=0x7f216"
+	"dpi_output_format=0x7f016"
 	"dpi_timings=480 0 10 16 55 480 0 15 60 15 0 0 0 60 0 19200000 6"
 )
 
