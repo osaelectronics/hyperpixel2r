@@ -118,6 +118,16 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x01)
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
+    SPI_WriteData(0x13)
+
+    SPI_WriteComm(0xFF)
+    SPI_WriteData(0x08)
+
+    SPI_WriteComm(0xFF)
+    SPI_WriteData(0x77)
+    SPI_WriteData(0x01)
+    SPI_WriteData(0x00)
+    SPI_WriteData(0x00)
     SPI_WriteData(0x10)
 
     SPI_WriteComm(0xC0)
@@ -125,52 +135,58 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x00)
 
     SPI_WriteComm(0xC1)
-    SPI_WriteData(0x0B)  # VBP
-    SPI_WriteData(0x02)
+    SPI_WriteData(0x10)  # VBP
+    SPI_WriteData(0x0C)
 
     SPI_WriteComm(0xC2)
-    SPI_WriteData(0x00)  # 07 OR 00
-    SPI_WriteData(0x02)
+    SPI_WriteData(0x07)  # 07 OR 00
+    SPI_WriteData(0x0A)
+
+    SPI_WriteComm(0xC7)
+    SPI_WriteData(0x04)
 
     SPI_WriteComm(0xCC)
     SPI_WriteData(0x10)
 
+    SPI_WriteComm(0xCD)
+    SPI_WriteData(0x08)
+
     # Gamma option A:
     # SPI_WriteComm(0xB0) # IPS
-    # SPI_WriteData(0x00) # 255
-    # SPI_WriteData(0x11) # 251
-    # SPI_WriteData(0x16) # 247  down
+    # SPI_WriteData(0x05) # 255
+    # SPI_WriteData(0x12) # 251
+    # SPI_WriteData(0x98) # 247  down
     # SPI_WriteData(0x0e) # 239
-    # SPI_WriteData(0x11) # 231
-    # SPI_WriteData(0x06) # 203
-    # SPI_WriteData(0x05) # 175
+    # SPI_WriteData(0x0f) # 231
+    # SPI_WriteData(0x07) # 203
+    # SPI_WriteData(0x07) # 175
     # SPI_WriteData(0x09) # 147
-    # SPI_WriteData(0x08) # 108
-    # SPI_WriteData(0x21) # 80
-    # SPI_WriteData(0x06) # 52
-    # SPI_WriteData(0x13) # 24
-    # SPI_WriteData(0x10) # 16
-    # SPI_WriteData(0x29) # 8    down
-    # SPI_WriteData(0x31) # 4
-    # SPI_WriteData(0x18) # 0
+    # SPI_WriteData(0x09) # 108
+    # SPI_WriteData(0x23) # 80
+    # SPI_WriteData(0x05) # 52
+    # SPI_WriteData(0x52) # 24
+    # SPI_WriteData(0x0F) # 16
+    # SPI_WriteData(0x67) # 8    down
+    # SPI_WriteData(0x2C) # 4
+    # SPI_WriteData(0x11) # 0
 
     # SPI_WriteComm(0xB1)#  IPS
-    # SPI_WriteData(0x00)#  255
+    # SPI_WriteData(0x0B)#  255
     # SPI_WriteData(0x11)#  251
-    # SPI_WriteData(0x16)#  247   down
-    # SPI_WriteData(0x0e)#  239
-    # SPI_WriteData(0x11)#  231
-    # SPI_WriteData(0x07)#  203
-    # SPI_WriteData(0x05)#  175
-    # SPI_WriteData(0x09)#  147
-    # SPI_WriteData(0x09)#  108
-    # SPI_WriteData(0x21)#  80
-    # SPI_WriteData(0x05)#  52
-    # SPI_WriteData(0x13)#  24
+    # SPI_WriteData(0x97)#  247   down
+    # SPI_WriteData(0x0c)#  239
+    # SPI_WriteData(0x12)#  231
+    # SPI_WriteData(0x06)#  203
+    # SPI_WriteData(0x06)#  175
+    # SPI_WriteData(0x08)#  147
+    # SPI_WriteData(0x08)#  108
+    # SPI_WriteData(0x22)#  80
+    # SPI_WriteData(0x03)#  52
+    # SPI_WriteData(0x51)#  24
     # SPI_WriteData(0x11)#  16
-    # SPI_WriteData(0x2a)#  8  down
-    # SPI_WriteData(0x31)#  4
-    # SPI_WriteData(0x18)#  0
+    # SPI_WriteData(0x66)#  8  down
+    # SPI_WriteData(0x2b)#  4
+    # SPI_WriteData(0x0f)#  0
 
     # Gamma option B:
     SPI_WriteComm(0xB0)  # Positive Voltage Gamma Control
@@ -220,7 +236,7 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x5D)  # 6D OR 5D
 
     SPI_WriteComm(0xB1)  # VCOM amplitude setting
-    SPI_WriteData(0x43)  # 37 OR 43
+    SPI_WriteData(0x2D)  # 37 OR 43
 
     SPI_WriteComm(0xB2)  # VGH Voltage setting
     SPI_WriteData(0x81)  # 12V
@@ -229,7 +245,7 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x80)
 
     SPI_WriteComm(0xB5)  # VGL Voltage setting
-    SPI_WriteData(0x43)  # -8.3V
+    SPI_WriteData(0x4E)  # -8.3V
 
     SPI_WriteComm(0xB7)
     SPI_WriteData(0x85)
@@ -252,29 +268,28 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x02)
 
     SPI_WriteComm(0xE1)
-    SPI_WriteData(0x03)
-    SPI_WriteData(0xA0)
+    SPI_WriteData(0x06)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0x08)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0x05)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0x07)
+    SPI_WriteData(0x30)
     SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x04)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x20)
-    SPI_WriteData(0x20)
+    SPI_WriteData(0x33)
+    SPI_WriteData(0x33)
 
     SPI_WriteComm(0xE2)
+    SPI_WriteData(0x11)
+    SPI_WriteData(0x11)
+    SPI_WriteData(0x33)
+    SPI_WriteData(0x33)
+    SPI_WriteData(0xF4)
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0xF4)
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
@@ -283,92 +298,96 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
     SPI_WriteData(0x11)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x11)
 
     SPI_WriteComm(0xE4)
-    SPI_WriteData(0x22)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x44)
+    SPI_WriteData(0x44)
 
     SPI_WriteComm(0xE5)
-    SPI_WriteData(0x05)
-    SPI_WriteData(0xEC)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0x07)
-    SPI_WriteData(0xEE)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x0D)
+    SPI_WriteData(0xF5)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
+    SPI_WriteData(0x0F)
+    SPI_WriteData(0xF7)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
+    SPI_WriteData(0x09)
+    SPI_WriteData(0xF1)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
+    SPI_WriteData(0x0B)
+    SPI_WriteData(0xF3)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
 
     SPI_WriteComm(0xE6)
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
     SPI_WriteData(0x11)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x11)
 
     SPI_WriteComm(0xE7)
-    SPI_WriteData(0x22)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x44)
+    SPI_WriteData(0x44)
 
     SPI_WriteComm(0xE8)
-    SPI_WriteData(0x06)
-    SPI_WriteData(0xED)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0xA0)
+    SPI_WriteData(0x0C)
+    SPI_WriteData(0xF4)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
+    SPI_WriteData(0x0E)
+    SPI_WriteData(0xF6)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
     SPI_WriteData(0x08)
-    SPI_WriteData(0xEF)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0xF0)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
+    SPI_WriteData(0x0A)
+    SPI_WriteData(0xF2)
+    SPI_WriteData(0x30)
+    SPI_WriteData(0xF0)
+
+    SPI_WriteComm(0xE9)
+    SPI_WriteData(0x36)
+    SPI_WriteData(0x31)
 
     SPI_WriteComm(0xEB)
     SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x01)
+    SPI_WriteData(0xE4)
+    SPI_WriteData(0xE4)
+    SPI_WriteData(0x44)
+    SPI_WriteData(0x88)
     SPI_WriteData(0x40)
-    SPI_WriteData(0x40)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
-    SPI_WriteData(0x00)
 
     SPI_WriteComm(0xED)
     SPI_WriteData(0xFF)
-    SPI_WriteData(0xFF)
-    SPI_WriteData(0xFF)
-    SPI_WriteData(0xBA)
-    SPI_WriteData(0x0A)
-    SPI_WriteData(0xBF)
-    SPI_WriteData(0x45)
-    SPI_WriteData(0xFF)
-    SPI_WriteData(0xFF)
+    SPI_WriteData(0x10)
+    SPI_WriteData(0xAF)
+    SPI_WriteData(0x76)
     SPI_WriteData(0x54)
-    SPI_WriteData(0xFB)
-    SPI_WriteData(0xA0)
-    SPI_WriteData(0xAB)
+    SPI_WriteData(0x2B)
+    SPI_WriteData(0xCF)
     SPI_WriteData(0xFF)
     SPI_WriteData(0xFF)
+    SPI_WriteData(0xFC)
+    SPI_WriteData(0xB2)
+    SPI_WriteData(0x45)
+    SPI_WriteData(0x67)
+    SPI_WriteData(0xFA)
+    SPI_WriteData(0x01)
     SPI_WriteData(0xFF)
 
     SPI_WriteComm(0xEF)
-    SPI_WriteData(0x10)
-    SPI_WriteData(0x0D)
-    SPI_WriteData(0x04)
     SPI_WriteData(0x08)
+    SPI_WriteData(0x08)
+    SPI_WriteData(0x08)
+    SPI_WriteData(0x45)
     SPI_WriteData(0x3F)
-    SPI_WriteData(0x1F)
+    SPI_WriteData(0x54)
 
     SPI_WriteComm(0xFF)
     SPI_WriteData(0x77)
@@ -392,7 +411,7 @@ def setup_hp2_round(CLK, MOSI, CS):
     # SPI_WriteData(0x00)
 
     SPI_WriteComm(0x36) # MadCtl
-    SPI_WriteData(0x08)
+    SPI_WriteData(0x00)
 
     SPI_WriteComm(0x3A)  # Colmod
     SPI_WriteData(0x66)
