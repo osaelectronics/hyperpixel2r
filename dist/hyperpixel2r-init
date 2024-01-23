@@ -363,7 +363,7 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x00)
 
     SPI_WriteComm(0x36) # MadCtl
-    SPI_WriteData(0x00)
+    SPI_WriteData(0x10)
 
     SPI_WriteComm(0x3A)  # Colmod
     SPI_WriteData(0x60)
