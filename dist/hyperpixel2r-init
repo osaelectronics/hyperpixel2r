@@ -359,6 +359,32 @@ def setup_hp2_round(CLK, MOSI, CS):
     SPI_WriteData(0x00)
     SPI_WriteData(0x00)
 
+    # Display test begin
+	SPI_WriteComm(0xFF);
+	SPI_WriteData(0x77);
+	SPI_WriteData(0x01);
+	SPI_WriteData(0x00);
+	SPI_WriteData(0x00);
+	SPI_WriteData(0x12);
+	SPI_WriteComm(0xD1);
+	SPI_WriteData(0x81);
+	SPI_WriteData(0x08);
+	SPI_WriteData(0x03);
+	SPI_WriteData(0x20);
+	SPI_WriteData(0x08);
+	SPI_WriteData(0x01);
+	SPI_WriteData(0xA0);
+	SPI_WriteData(0x01);
+	SPI_WriteData(0xE0);
+	SPI_WriteData(0xA0);
+	SPI_WriteData(0x01);
+	SPI_WriteData(0xE0);
+	SPI_WriteData(0x03);
+	SPI_WriteData(0x20);
+	SPI_WriteComm(0xD2);
+	SPI_WriteData(0x08);
+    # Display test end
+
     SPI_WriteComm(0xCD)  # RGB format COLCTRL
     SPI_WriteData(0x08)
 
